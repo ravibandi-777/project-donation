@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Life Blood Organ Network</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary-color: #ff6a00;
+      --secondary-color: #ee0979;
+      --background-color: #f5f5f5;
+      --text-color: #333;
+      --heading-color: #d84315;
+      --button-hover-color: #c62828;
+      --shadow-color: rgba(0, 0, 0, 0.15);
+      --link-color: #ff6a00;
+      --hover-shadow: rgba(0, 0, 0, 0.2);
+      --glass-color: rgba(255, 255, 255, 0.2);
+      --glass-border: rgba(255, 255, 255, 0.3);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    /* Header Styles */
+    header {
+      background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+      color: white;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      box-shadow: 0 4px 8px var(--shadow-color);
+      z-index: 10;
+    }
+
+    .header-left {
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+    }
+
+    /* Menu Icon on the Right */
+    .three-dots-btn {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      color: white;
+      font-size: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .three-dots-btn span {
+      width: 25px;
+      height: 5px;
+      background-color: white;
+      margin: 4px 0;
+      transition: 0.3s ease;
+    }
+
+    .three-dots-btn.active span:nth-child(1) {
+      transform: rotate(45deg);
+      position: relative;
+      top: 10px;
+    }
+
+    .three-dots-btn.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .three-dots-btn.active span:nth-child(3) {
+      transform: rotate(-45deg);
+      position: relative;
+      top: -10px;
+    }
+
+    /* Menu Sidebar */
+    .settings-menu {
+      position: fixed;
+      top: 0;
+      left: -300px; /* Initially hidden, positioned to the left */
+      width: 250px;
+      height: 100%;
+      background-color: #ffffff;
+      box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3); /* Shadow on the right side */
+      transition: left 0.3s ease-in-out;
+      z-index: 20;
+      padding: 20px;
+    }
+
+    .settings-menu.open {
+      left: 0; /* Show when toggled */
+    }
+
+    .settings-menu ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .settings-menu li {
+      margin: 20px 0;
+      font-size: 1.2rem;
+    }
+
+    .settings-menu li a {
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    .settings-menu li a:hover {
+      text-decoration: underline;
+    }
+
+    /* Adjusting the layout for responsiveness */
+    @media only screen and (max-width: 768px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      nav a {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header with Separated Title and Menu -->
+  <header>
+    <div class="header-left">
+      <h1>Life Blood Organ Network</h1>
+    </div>
+    <div class="header-right">
+      <button class="three-dots-btn" onclick="toggleSettingsMenu()">
+        <span>tfh</span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Settings Menu -->
+  <div id="settingsMenu" class="settings-menu">
+    <ul>
+      <li><a href="#" onclick="selectMenuItem('Dark Mode')">Toggle Dark Mode</a></li>
+      <li><a href="#" onclick="selectMenuItem('Notifications')">Notification Settings</a></li>
+      <li><a href="#" onclick="selectMenuItem('Profile')">Profile Settings</a></li>
+      <li><a href="#" onclick="selectMenuItem('Language')">Language Preferences</a></li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div id="mainApp">
+    <!-- Your main app sections like Hero, About, etc. -->
+  </div>
+
+  <script>
+    // Toggle Settings Menu visibility
+    function toggleSettingsMenu() {
+      const menu = document.getElementById('settingsMenu');
+      const dots = document.querySelector('.three-dots-btn');
+      menu.classList.toggle('open');
+      dots.classList.toggle('active');
+    }
+
+    // Close settings menu when an item is selected
+    function selectMenuItem(item) {
+      alert(item + ' selected!');
+      const menu = document.getElementById('settingsMenu');
+      const dots = document.querySelector('.three-dots-btn');
+      menu.classList.remove('open');  // Hide the menu
+      dots.classList.remove('active');  // Reset the three dots button
+    }
+  </script>
+
+</body>
+</html>
